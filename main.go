@@ -6,6 +6,7 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -50,6 +51,8 @@ func main() {
 				if err := os.Rename(cd+"/sketch.zip", fp); err != nil {
 					panic(err)
 				}
+				// 開く
+				exec.Command("open", fp).Run()
 				return nil
 			},
 		},
